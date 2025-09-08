@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const generateToken = require("./Auth/generateToken");
 const connectDB = require("./DBConnection/DBConnection");
+const generateOtp = require("./OtpValidation/generateOtp");
 
 const cors = require("cors");
 app.use(cors());
@@ -16,6 +17,8 @@ connectDB();
 app.use("/api", generateToken);
 app.use("/api", VerifyLogin);
 app.use("/api", CreateUser);
+app.use("/api", generateOtp);
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
