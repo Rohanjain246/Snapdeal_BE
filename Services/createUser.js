@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../DBConnection/createCollection"); // Adjust the path as necessary
+const User = require("../Models/userModel");
 require("dotenv").config();
 const verifyToken = require("../Auth/verifyToken");
 

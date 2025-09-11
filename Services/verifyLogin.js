@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../DBConnection/createCollection");
+const User = require("../Models/userModel");
 const _ = require("lodash");
 
 router.post("/login", async (req, res) => {
   const { number, email } = req.body;
   try {
     const user = await User.findOne({ number });
-    console.log("user --->", user);
     if (!user) {
       return res
         .status(400)
