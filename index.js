@@ -11,6 +11,7 @@ const cors = require("cors");
 app.use(cors());
 const VerifyLogin = require("./Services/verifyLogin");
 const CreateUser = require("./Services/createUser");
+const payment = require("./Payment_Gateway/payment");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +21,7 @@ app.use("/api", VerifyLogin);
 app.use("/api", CreateUser);
 app.use("/api", generateOtp);
 app.use("/api", fetchProduct);
+app.use("/api", payment);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
