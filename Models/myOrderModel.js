@@ -1,12 +1,13 @@
-const { size } = require("lodash");
 const mongoose = require("mongoose");
-const { colors } = require("prompt");
 
 const productSchema = new mongoose.Schema({
   title: String,
+  id: Number,
   img: String,
   price: String,
   oldPrice: String,
+  orderId: String,
+  createdDate: Date,
   highlights: [String],
   specifications: {
     countryOfOrigin: String,
@@ -29,11 +30,10 @@ const productSchema = new mongoose.Schema({
     },
   ],
   recommendations: Number,
-  sizes: Array,
-  colors: Array,
-  id: Number,
+  status: String,
+  quantity: String,
 });
 
-const Product = mongoose.model("Product", productSchema);
+const MyOrder = mongoose.model("MyOrder", productSchema, "myOrders");
 
-module.exports = Product;
+module.exports = MyOrder;

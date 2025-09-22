@@ -1,6 +1,4 @@
-const { size } = require("lodash");
 const mongoose = require("mongoose");
-const { colors } = require("prompt");
 
 const productSchema = new mongoose.Schema({
   title: String,
@@ -19,6 +17,7 @@ const productSchema = new mongoose.Schema({
     storeLink: String,
   },
   category: String,
+  subCategory: String,
   brand: String,
   rating: Number,
   reviews: [
@@ -34,6 +33,10 @@ const productSchema = new mongoose.Schema({
   id: Number,
 });
 
-const Product = mongoose.model("Product", productSchema);
+const ProductDetails = mongoose.model(
+  "ProductDetails",
+  productSchema,
+  "productDetails"
+);
 
-module.exports = Product;
+module.exports = ProductDetails;

@@ -34,6 +34,7 @@ router.post("/send", async (req, res) => {
     console.log(`✅ OTP for ${phone}: ${otp}`);
     res.status(200).json({ success: true, message: "OTP sent via WhatsApp" });
   } catch (error) {
+    console.log("error --->", error);
     console.error("❌ Error sending OTP:", error);
     res.status(500).json({ success: false, message: "Failed to send OTP" });
   }
